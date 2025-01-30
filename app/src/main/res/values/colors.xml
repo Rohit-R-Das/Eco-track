@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+        <color name="purple_500">#6200EE</color>
+        <color name="purple_700">#3700B3</color>
+        <color name="white">#FFFFFF</color>
+        <color name="teal_200">#03DAC5</color>
+        <color name="teal_700">#018786</color>
+        <color name="green">#328695</color>
+    <color name="bg_color">#76fda8</color>
+    <color name="Purple">#3226fd</color>
+    <color name="darkblue">#00072d</color>
+    <color name="activity_bg_color">#0000FF</color> <!-- Blue background color -->
+    <color name="text_color">#000000</color> <!-- Black text color -->
+    <color name="hint_text_color">#A9A9A9</color> <!-- Darker gray hint text color -->
+    <color name="button_bg_color">#32CD32</color> <!-- Light green button background color -->
+<color name="grey">#a7aeb4</color>
+
+</resources>

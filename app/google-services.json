@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "740017339386",
+    "project_id": "authenticate-2024",
+    "storage_bucket": "authenticate-2024.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740017339386:android:38c4839d846155a2108243",
+        "android_client_info": {
+          "package_name": "com.example.ecotrack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNd4NklDKNA1Q75wRG5DIwArSqZp6EKC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

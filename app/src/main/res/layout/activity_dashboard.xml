@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".DashboardActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hi, welcome to Eco Track app!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eco Track"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:layout_marginBottom="16dp"/>
+
+        <ImageView
+            android:id="@+id/earthImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/earth1"
+            android:contentDescription="Earth Image"
+            android:layout_marginBottom="16dp"/>
+
+
+
+        <TextView
+            android:id="@+id/reduceCarbonFootprintInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reducing your carbon footprint helps to mitigate climate change, improve air quality, and promote sustainable living."
+            android:textSize="16sp"
+            android:textColor="@color/green"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/commuteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Commute\nCalculate your carbon footprint"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:gravity="center"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/householdButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Household\nCalculate your carbon footprint"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:gravity="center"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/foodButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Food\nCalculate your carbon footprint"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:gravity="center"
+            android:layout_marginTop="16dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:text="Sign Out"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+</ScrollView>

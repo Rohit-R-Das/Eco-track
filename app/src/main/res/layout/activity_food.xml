@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".FoodActivity">
+
+    <TextView
+        android:id="@+id/foodText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food Activity"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/foodText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Meat Consumption Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meat Consumption (kg)"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_meat_consumption"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter consumption"
+                android:inputType="numberDecimal"
+                android:gravity="center"
+                android:padding="12dp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Dairy Consumption Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dairy Consumption (kg)"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_dairy_consumption"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter consumption"
+                android:inputType="numberDecimal"
+                android:gravity="center"
+                android:padding="12dp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Vegetable Consumption Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vegetable Consumption (kg)"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_vegetable_consumption"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter consumption"
+                android:inputType="numberDecimal"
+                android:gravity="center"
+                android:padding="12dp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Calculate Button -->
+        <Button
+            android:id="@+id/btn_calculate_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculate"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Carbon Savings TextView -->
+        <TextView
+            android:id="@+id/tvFoodCarbonSavings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carbon Savings"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
