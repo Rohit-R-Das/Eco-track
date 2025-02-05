@@ -64,23 +64,28 @@ class CommuteActivity : AppCompatActivity() {
     }
 
     private fun calculateCarbonFootprint(distance: Double, travelMode: String, insteadOf: String): Double {
-        val emissionFactor = when (travelMode) {
-            "Car" -> 0.21 // kg CO2 per km
-            "Bus" -> 0.05
-            "Train" -> 0.04
-            "Bicycle" -> 0.0
-            "Walking" -> 0.0
-            else -> 0.0
-        }
-        val insteadOfFactor = when (insteadOf) {
-            "Car" -> 0.21
-            "Bus" -> 0.05
-            "Train" -> 0.04
-            "Bicycle" -> 0.0
-            "Walking" -> 0.0
-            else -> 0.0
-        }
+        val emissionFactor = getEmissionFactor(travelMode)
+        val insteadOfFactor = getEmissionFactor(insteadOf)
         return distance * (insteadOfFactor - emissionFactor)
+    }
+
+    private fun getEmissionFactor(mode: String): Double {
+        return when (mode) {
+            "Electrical Bicycle" -> 0.02
+            "Bus/Minibus/Coach" -> 0.05
+            "Train/Metro" -> 0.04
+            "2 Wheeler (alone)" -> 0.06
+            "2 Wheeler (2 passengers)" -> 0.03
+            "Car (alone)" -> 0.12
+            "Car (2 passengers)" -> 0.06
+            "Car (3 passengers)" -> 0.04
+            "Car (4 passengers)" -> 0.03
+            "Flight" -> 0.15
+            "Bicycle" -> 0.0
+            "Did not travel" -> 0.0
+            "Feet! (walking)" -> 0.0
+            else -> 0.0
+        }
     }
 
     private fun saveCarbonFootprint(carbonFootprint: Double) {

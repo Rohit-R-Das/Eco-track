@@ -11,17 +11,52 @@
     <string name="password">Password</string>
     <string name="create_account">Create Account</string>
     <string-array name="travel_modes">
-        <item>Car</item>
-        <item>Bus</item>
-        <item>Train</item>
+        <item>Electrical Bicycle</item>
+        <item>Bus/Minibus/Coach</item>
+        <item>Train/Metro</item>
+        <item>2 Wheeler (alone)</item>
+        <item>2 Wheeler (2 passengers)</item>
+        <item>Car (alone)</item>
+        <item>Car (2 passengers)</item>
+        <item>Car (3 passengers)</item>
+        <item>Car (4 passengers)</item>
+        <item>Flight</item>
         <item>Bicycle</item>
-        <item>Walking</item>
+        <item>Did not travel</item>
+        <item>Feet! (walking)</item>
     </string-array>
     <string-array name="instead_of_options">
-        <item>Car</item>
-        <item>Bus</item>
-        <item>Train</item>
-        <item>Bicycle</item>
-        <item>Walking</item>
+        <item>Car (alone)</item>
+        <item>Car (2 passengers)</item>
+        <item>Car (3 passengers)</item>
+        <item>Car (4 passengers)</item>
+        <item>2 Wheeler (alone)</item>
+        <item>2 Wheeler (2 passengers)</item>
+        <item>Flight</item>
+        <item>Bus/Minibus/Coach</item>
+        <item>Train/Metro</item>
+    </string-array>
+    <string-array name="appliance_options">
+        <item>Refrigerator</item>
+        <item>Clothes Washing and Drying</item>
+        <item>Dishwasher</item>
+        <item>Cooking: Oven</item>
+        <item>Cooking: Stovetop/Cooktop/Hob</item>
+        <item>TV</item>
+        <item>Fan</item>
+    </string-array>
+    <string-array name="heating_options">
+        <item>Switched of heaters</item>
+        <item>Reduced temperature Setting</item>
+    </string-array>
+    <string-array name="ac_options">
+        <item>Switched Off AC</item>
+        <item>Increased Temperature Setting</item>
+    </string-array>
+    <string-array name="water_heating_options">
+        <item>Used Less Hot water </item>
+    </string-array>
+    <string-array name="lighting_options">
+        <item>Switched of light bulbs</item>
     </string-array>
 </resources>
