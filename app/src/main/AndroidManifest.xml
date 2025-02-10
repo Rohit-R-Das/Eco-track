@@ -15,9 +15,11 @@
         android:theme="@style/Theme.EcoTrack"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".NameActivity"
             android:exported="false" />
-
         <activity
             android:name=".FoodActivity"
             android:exported="false" />

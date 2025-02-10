@@ -2,6 +2,7 @@ package com.example.ecotrack
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,19 +12,23 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
-    companion object {
-        lateinit var auth: FirebaseAuth
-    }
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         auth = FirebaseAuth.getInstance()
 
-        // Check if user is already logged in
-        if (auth.currentUser != null) {
-            // User is logged in, redirect to DashboardActivity
+        // Check if user is already logged in (Firebase email/password OR Google sign-in)
+        val user = auth.currentUser
+        if (user != null) {
+            Log.d("MainActivity", "User Logged In: ${user.email} (Provider: ${user.providerId})")
+
+            // Check authentication providers
+            for (profile in user.providerData) {
+                Log.d("MainActivity", "User Provider: ${profile.providerId}")
+            }
+
             startActivity(Intent(this, DashboardActivity::class.java))
             finish()
             return
@@ -33,8 +38,9 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
+        // Ensure correct redirection for Sign-In
         binding.signIn.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java)) // Fixed
             finish()
         }
 

@@ -9,7 +9,11 @@
     <string name="already_have_account">Already Have An Account?</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
     <string name="create_account">Create Account</string>
+    <string name="hello_world">Hello world</string>
+    <string name="default_web_client_id">740017339386-2vv8gs2kn2vkims04gs5ubhcl0q9qkut.apps.googleusercontent.com</string>
+
     <string-array name="travel_modes">
         <item>Electrical Bicycle</item>
         <item>Bus/Minibus/Coach</item>
@@ -25,6 +29,7 @@
         <item>Did not travel</item>
         <item>Feet! (walking)</item>
     </string-array>
+
     <string-array name="instead_of_options">
         <item>Car (alone)</item>
         <item>Car (2 passengers)</item>
@@ -36,6 +41,7 @@
         <item>Bus/Minibus/Coach</item>
         <item>Train/Metro</item>
     </string-array>
+
     <string-array name="appliance_options">
         <item>Refrigerator</item>
         <item>Clothes Washing and Drying</item>
@@ -45,18 +51,97 @@
         <item>TV</item>
         <item>Fan</item>
     </string-array>
+
     <string-array name="heating_options">
         <item>Switched of heaters</item>
         <item>Reduced temperature Setting</item>
     </string-array>
+
     <string-array name="ac_options">
         <item>Switched Off AC</item>
         <item>Increased Temperature Setting</item>
     </string-array>
+
     <string-array name="water_heating_options">
-        <item>Used Less Hot water </item>
+        <item>Used Less Hot water</item>
     </string-array>
+
     <string-array name="lighting_options">
         <item>Switched of light bulbs</item>
     </string-array>
+
+    <string-array name="category_options">
+        <item>Transport</item>
+        <item>Food</item>
+        <item>Appliances</item>
+        <item>Information and Computer Technology</item>
+        <item>Clothing and Footwear</item>
+        <item>Housing and Furniture</item>
+        <item>Waste Disposal</item>
+    </string-array>
+
+    <string-array name="transport_options">
+        <item>Car</item>
+        <item>Motorcycle</item>
+    </string-array>
+
+    <string-array name="food_options">
+        <item>Meat</item>
+        <item>Poultry</item>
+        <item>Fish</item>
+        <item>Rice</item>
+    </string-array>
+
+    <string-array name="appliance_category_options">
+        <item>Large Appliance</item>
+        <item>Small Appliance</item>
+    </string-array>
+
+    <string-array name="appliance_additional_options">
+        <item>Postponed Purchase by One Year</item>
+        <item>Did Not Purchase</item>
+    </string-array>
+
+    <string-array name="ict_options">
+        <item>Smartphones/Mobiles/Tablets</item>
+        <item>Laptops/Desktops</item>
+        <item>TV/Digital Equipment</item>
+    </string-array>
+
+    <string-array name="clothing_footwear_options">
+        <item>Clothing</item>
+        <item>Footwear</item>
+        <item>Did Not Purchase</item>
+    </string-array>
+
+    <string-array name="ict_additional_options">
+        <item>Postponed Purchase by One Year</item>
+        <item>Did Not Purchase</item>
+    </string-array>
+
+    <string-array name="clothing_footwear_additional_options">
+        <item>Postponed Purchase by One Year</item>
+        <item>Did Not Purchase</item>
+    </string-array>
+
+    <string-array name="housing_furniture_options">
+        <item>House</item>
+        <item>Furniture</item>
+    </string-array>
+
+    <string-array name="housing_furniture_additional_options">
+        <item>Postponed Purchase by One Year</item>
+        <item>Did Not Purchase</item>
+    </string-array>
+
+    <string-array name="waste_disposal_options">
+        <item>Wet Waste</item>
+        <item>Dry Waste</item>
+    </string-array>
+
+    <string-array name="empty_options">
+        <item></item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

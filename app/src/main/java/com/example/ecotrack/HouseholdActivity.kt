@@ -9,11 +9,13 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ecotrack.databinding.ActivityHouseholdBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class HouseholdActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHouseholdBinding
     private lateinit var db: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth  // Declare FirebaseAuth instance
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +23,7 @@ class HouseholdActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         db = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()  // Initialize FirebaseAuth
 
         // Set up the spinners with appliance options
         setupSpinner(binding.spinnerAppliance, R.array.appliance_options)
@@ -105,28 +108,28 @@ class HouseholdActivity : AppCompatActivity() {
 
     private fun calculateCarbonFootprint(appliance: String, usage: Int, lightingDuration: Int): Double {
         val applianceFootprint = when (appliance) {
-            "Refrigerator" -> usage * 0.1 // Example factor
-            "Clothes Washing and Drying" -> usage * 0.5 // Example factor
-            "Dishwasher" -> usage * 0.3 // Example factor
-            "Cooking: Oven" -> usage * 0.2 // Example factor
-            "Cooking: Stovetop/Cooktop/Hob" -> usage * 0.15 // Example factor
-            "TV" -> usage * 0.05 // Example factor
-            "Fan" -> usage * 0.02 // Example factor
-            "Switched of heaters" -> usage * 0.4 // Example factor
-            "Reduced temperature Setting" -> usage * 0.3 // Example factor
-            "Switched Off AC" -> usage * 0.5 // Example factor
-            "Increased Temperature Setting" -> usage * 0.4 // Example factor
-            "Used Less Hot water" -> usage * 0.6 // Example factor
-            "Did'n used Hot Water" -> usage * 0.5 // Example factor
-            "Switched of light bulbs" -> 0.0 // No usage for switched off bulbs
+            "Refrigerator" -> usage * 0.1
+            "Clothes Washing and Drying" -> usage * 0.5
+            "Dishwasher" -> usage * 0.3
+            "Cooking: Oven" -> usage * 0.2
+            "Cooking: Stovetop/Cooktop/Hob" -> usage * 0.15
+            "TV" -> usage * 0.05
+            "Fan" -> usage * 0.02
+            "Switched of heaters" -> usage * 0.4
+            "Reduced temperature Setting" -> usage * 0.3
+            "Switched Off AC" -> usage * 0.5
+            "Increased Temperature Setting" -> usage * 0.4
+            "Used Less Hot water" -> usage * 0.6
+            "Did'n used Hot Water" -> usage * 0.5
+            "Switched of light bulbs" -> 0.0
             else -> 0.0
         }
-        val lightingFootprint = lightingDuration * 0.1 // Example factor for lighting
+        val lightingFootprint = lightingDuration * 0.1
         return applianceFootprint + lightingFootprint
     }
 
     private fun saveCarbonFootprint(carbonFootprint: Double) {
-        val user = MainActivity.auth.currentUser
+        val user = auth.currentUser  // Use initialized FirebaseAuth instance
         if (user != null) {
             val data = hashMapOf(
                 "userId" to user.uid,

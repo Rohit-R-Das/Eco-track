@@ -6,14 +6,15 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.ecotrack.databinding.ActivityCommuteBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class CommuteActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityCommuteBinding
     private lateinit var db: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,35 +22,17 @@ class CommuteActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
+        // Initialize FirebaseAuth
+        auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
-        // Set up the spinners with travel modes and instead of options
+        // Setup Spinners
         setupSpinner(binding.spinnerTravelBy, R.array.travel_modes)
         setupSpinner(binding.spinnerInsteadOf, R.array.instead_of_options)
 
+        // Calculate Button Click
         binding.btnCalculate.setOnClickListener {
-            val distance = binding.etDistance.text.toString().toDoubleOrNull()
-            val travelMode = binding.spinnerTravelBy.selectedItem.toString()
-            val insteadOf = binding.spinnerInsteadOf.selectedItem.toString()
-
-            if (distance != null) {
-                try {
-                    val carbonFootprint = calculateCarbonFootprint(distance, travelMode, insteadOf)
-                    saveCarbonFootprint(carbonFootprint)
-                    binding.tvCarbonSavings.text = "$carbonFootprint kg CO2eq"
-                    Toast.makeText(this, "Carbon footprint saved!", Toast.LENGTH_SHORT).show()
-                } catch (e: Exception) {
-                    Toast.makeText(this, "Error calculating carbon footprint: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Toast.makeText(this, "Please enter a valid distance.", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+            calculateAndSaveCarbonFootprint()
         }
     }
 
@@ -61,6 +44,26 @@ class CommuteActivity : AppCompatActivity() {
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
+    }
+
+    private fun calculateAndSaveCarbonFootprint() {
+        val distanceStr = binding.etDistance.text.toString()
+        val distance = distanceStr.toDoubleOrNull()
+        val travelMode = binding.spinnerTravelBy.selectedItem?.toString()
+        val insteadOf = binding.spinnerInsteadOf.selectedItem?.toString()
+
+        if (distance == null || travelMode.isNullOrEmpty() || insteadOf.isNullOrEmpty()) {
+            Toast.makeText(this, "Please enter valid distance and select options.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        try {
+            val carbonFootprint = calculateCarbonFootprint(distance, travelMode, insteadOf)
+            binding.tvCarbonSavings.text = "$carbonFootprint kg CO2eq"
+            saveCarbonFootprint(carbonFootprint)
+        } catch (e: Exception) {
+            Toast.makeText(this, "Error calculating carbon footprint: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun calculateCarbonFootprint(distance: Double, travelMode: String, insteadOf: String): Double {
@@ -89,7 +92,7 @@ class CommuteActivity : AppCompatActivity() {
     }
 
     private fun saveCarbonFootprint(carbonFootprint: Double) {
-        val user = MainActivity.auth.currentUser
+        val user = auth.currentUser
         if (user != null) {
             val data = hashMapOf(
                 "userId" to user.uid,

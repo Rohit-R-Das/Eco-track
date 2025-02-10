@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home " />
+    <item
+        android:id="@+id/bottom_savings_history"
+        android:icon="@drawable/ic_history"
+        android:title="Savings History" />
+    <item
+        android:id="@+id/bottom_saving_target"
+        android:icon="@drawable/ic_target"
+        android:title="Saving Target" />
+    <item
+        android:id="@+id/bottom_suggestions"
+        android:icon="@drawable/ic_suggestions"
+        android:title="Suggestions" />
+    <item
+        android:id="@+id/bottom_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile" />
+</menu>

@@ -5,8 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
+    tools:context=".LoginActivity"
     android:background="@color/bg_color">
+
+    <!-- Login Button -->
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="124dp"
@@ -14,9 +16,10 @@
         android:src="@drawable/logo2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.026" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,9 +27,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35">
+        app:layout_constraintVertical_bias="0.287"
+        tools:layout_editor_absoluteX="0dp">
 
-        <!--        Email Input Field-->
+        <!-- Email Input Field -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -36,7 +40,6 @@
             android:hint="@string/email"
             android:textColorHint="@color/green"
             app:boxStrokeColor="@color/white"
-
             app:startIconTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -48,7 +51,7 @@
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--        Password Input Field-->
+        <!-- Password Input Field -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -58,7 +61,6 @@
             android:hint="@string/password"
             android:textColorHint="@color/green"
             app:boxStrokeColor="@color/white"
-
             app:startIconTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -70,8 +72,57 @@
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Forgot Password TextView -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/forgotPasswordTV"
+            android:layout_width="154dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:text="@string/forgot_password"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordLogin" />
+
+        <!-- Added Space Below Forgot Password -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
     </LinearLayout>
+
+
+    <!-- Google Sign-In Button -->
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/LoginBtn"
+        android:layout_width="128dp"
+        android:layout_height="56dp"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:text="@string/login"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/googleSignInBtn"
+        android:layout_width="203dp"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/LoginBtn"
+        app:layout_constraintVertical_bias="0.028" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -89,10 +140,10 @@
             android:layout_weight="0.7"
             android:gravity="end|center_vertical"
             android:paddingHorizontal="10dp"
-            android:textStyle="bold"
             android:text="@string/dont_have_account"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/RegisterTV"
@@ -104,23 +155,6 @@
             android:textColor="@color/green"
             android:textSize="16sp"
             android:textStyle="bold" />
-
     </LinearLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/LoginBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@android:color/holo_green_light"
-        app:layout_constraintVertical_bias="0.6"
-        android:textStyle="bold"
-        android:text="@string/login"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

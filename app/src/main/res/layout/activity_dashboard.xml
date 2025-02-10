@@ -9,6 +9,7 @@
     android:background="@color/bg_color"
     tools:context=".DashboardActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,8 +45,6 @@
             android:contentDescription="Earth Image"
             android:layout_marginBottom="16dp"/>
 
-
-
         <TextView
             android:id="@+id/reduceCarbonFootprintInfo"
             android:layout_width="wrap_content"
@@ -60,7 +59,7 @@
             android:id="@+id/commuteButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Commute\nCalculate your carbon footprint"
+            android:text="Commute"
             android:textSize="18sp"
             android:textColor="@color/black"
             android:backgroundTint="@android:color/holo_green_light"
@@ -71,7 +70,7 @@
             android:id="@+id/householdButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Household\nCalculate your carbon footprint"
+            android:text="Household"
             android:textSize="18sp"
             android:textColor="@color/black"
             android:backgroundTint="@android:color/holo_green_light"
@@ -82,7 +81,7 @@
             android:id="@+id/foodButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Food\nCalculate your carbon footprint"
+            android:text="Food"
             android:textSize="18sp"
             android:textColor="@color/black"
             android:backgroundTint="@android:color/holo_green_light"
@@ -102,4 +101,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
+
 </ScrollView>
