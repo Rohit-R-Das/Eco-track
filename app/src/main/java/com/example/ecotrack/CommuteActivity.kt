@@ -1,5 +1,6 @@
 package com.example.ecotrack
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
@@ -59,7 +60,19 @@ class CommuteActivity : AppCompatActivity() {
 
         try {
             val carbonFootprint = calculateCarbonFootprint(distance, travelMode, insteadOf)
-            binding.tvCarbonSavings.text = "$carbonFootprint kg CO2eq"
+            val formattedCarbon = "%.2f".format(carbonFootprint)
+
+            // Generate Feedback & Quote
+            val (message, quote) = generateFeedbackAndQuote(carbonFootprint)
+
+            binding.tvCarbonSavings.text = """
+                $message
+                
+                🌱 "$quote"
+                
+                🌍 Carbon Footprint: $formattedCarbon kg CO2eq
+            """.trimIndent()
+
             saveCarbonFootprint(carbonFootprint)
         } catch (e: Exception) {
             Toast.makeText(this, "Error calculating carbon footprint: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -91,13 +104,34 @@ class CommuteActivity : AppCompatActivity() {
         }
     }
 
+    private fun generateFeedbackAndQuote(carbonFootprint: Double): Pair<String, String> {
+        val quotes = listOf(
+            "Every small step towards sustainability counts!",
+            "Be the change. Reduce your carbon footprint.",
+            "A cleaner future starts with your choices today.",
+            "Nature doesn't need us, but we need nature.",
+            "Drive less, breathe more!"
+        )
+        val randomQuote = quotes.random()
+
+        val message = when {
+            carbonFootprint < -1.0 -> "Oops! Your choice increased emissions. Consider greener options like public transport or biking. 🌍"
+            carbonFootprint in -1.0..1.0 -> "You're making a balanced choice! Try walking or carpooling when possible. 🚶‍♂️🚗"
+            carbonFootprint > 1.0 -> "Fantastic! You saved ${"%.2f".format(carbonFootprint)} kg of CO2! Keep up the great eco-friendly habits. 🌿"
+            else -> "Your choice has a neutral impact. Small steps make a big difference over time!"
+        }
+
+        return Pair(message, randomQuote)
+    }
+
     private fun saveCarbonFootprint(carbonFootprint: Double) {
         val user = auth.currentUser
         if (user != null) {
+            val timestamp = System.currentTimeMillis()
             val data = hashMapOf(
                 "userId" to user.uid,
                 "carbonFootprint" to carbonFootprint,
-                "timestamp" to System.currentTimeMillis()
+                "timestamp" to timestamp
             )
             db.collection("carbonFootprints")
                 .add(data)
@@ -107,6 +141,16 @@ class CommuteActivity : AppCompatActivity() {
                 .addOnFailureListener { e ->
                     Toast.makeText(this, "Error saving data: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
+
+            // Save to SharedPreferences
+            val sharedPreferences = getSharedPreferences("EcoTrackPrefs", Context.MODE_PRIVATE)
+            val carbonFootprintList = sharedPreferences.getStringSet("carbonFootprintList", mutableSetOf())?.toMutableSet()
+            val newEntry = "$carbonFootprint,$timestamp"
+            carbonFootprintList?.add(newEntry)
+            with(sharedPreferences.edit()) {
+                putStringSet("carbonFootprintList", carbonFootprintList)
+                apply()
+            }
         } else {
             Toast.makeText(this, "User not authenticated.", Toast.LENGTH_SHORT).show()
         }

@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color"
@@ -13,132 +12,152 @@
         android:id="@+id/commuteText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Commute Activity"
+        android:text="Travel"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/green"
+        android:textColor="@color/purple_500"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/commuteText"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/commuteAnimation"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/commuteText"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/travel" />
 
-        <!-- Distance Travelled Input -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/commuteAnimation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginTop="16dp">
 
-            <TextView
+            <!-- Distance Travelled Input -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Distance Travelled (Km)"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_distance"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="Enter distance"
+                    android:textColorHint="@color/green"
+                    android:inputType="numberDecimal"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <!-- Travelled By Dropdown -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travelled By"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_travel_by"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:popupBackground="@color/bg_color"
+                    android:outlineAmbientShadowColor="@color/green"
+                    android:layout_marginTop="8dp"
+                    android:entries="@array/travel_modes"
+                    android:padding="12dp" />
+            </LinearLayout>
+
+            <!-- Instead Of Dropdown -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Instead Of"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_instead_of"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:popupBackground="@color/bg_color"
+                    android:layout_marginTop="8dp"
+                    android:entries="@array/instead_of_options"
+                    android:padding="12dp" />
+            </LinearLayout>
+
+            <!-- Calculate Button -->
+            <Button
+                android:id="@+id/btn_calculate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Distance Travelled (Km)"
+                android:text="Calculate"
+                android:layout_marginTop="16dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:backgroundTint="@android:color/holo_green_light"
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal" />
 
-            <EditText
-                android:id="@+id/et_distance"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="Enter distance"
-                android:textColorHint="@color/green"
-                android:inputType="numberDecimal"
-                android:gravity="center"
-                android:padding="12dp"
-                android:layout_marginTop="8dp" />
-        </LinearLayout>
-
-        <!-- Travelled By Dropdown -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp">
-
+            <!-- Carbon Savings TextView -->
             <TextView
+                android:id="@+id/tvCarbonSavings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Travelled By"
+                android:text="Carbon Savings"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal" />
 
-            <Spinner
-                android:id="@+id/spinner_travel_by"
+            <!-- Spacer View -->
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:popupBackground="@color/bg_color"
-                android:outlineAmbientShadowColor="@color/green"
-                android:layout_marginTop="8dp"
-                android:entries="@array/travel_modes"
-                android:padding="12dp" />
+                android:layout_height="32dp" />
         </LinearLayout>
 
-        <!-- Instead Of Dropdown -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Instead Of"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <Spinner
-                android:id="@+id/spinner_instead_of"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:popupBackground="@color/bg_color"
-                android:layout_marginTop="8dp"
-                android:entries="@array/instead_of_options"
-                android:padding="12dp" />
-
-
-        </LinearLayout>
-
-        <!-- Calculate Button -->
-        <Button
-            android:id="@+id/btn_calculate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Calculate"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold"
-            android:backgroundTint="@android:color/holo_green_light"
-            android:textColor="#000000"
-            android:layout_gravity="center_horizontal" />
-
-        <!-- Carbon Savings TextView -->
-        <TextView
-            android:id="@+id/tvCarbonSavings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Carbon Savings"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="16dp"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
-
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

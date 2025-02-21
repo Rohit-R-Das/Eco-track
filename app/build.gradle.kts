@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.firebase.storage.ktx)
+    implementation(libs.androidx.gridlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -64,4 +65,9 @@ dependencies {
     implementation("com.google.android.gms:play-services-base:18.1.0")
     implementation("androidx.drawerlayout:drawerlayout:1.1.1")
     implementation("androidx.fragment:fragment-ktx:1.6.0")
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+    implementation("com.airbnb.android:lottie:4.1.0")
 }

@@ -1,0 +1,55 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".RewardActivity">
+
+  <TextView
+      android:id="@+id/achievementsTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Achievements"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      android:textColor="@android:color/holo_purple"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="16dp" />
+
+  <com.airbnb.lottie.LottieAnimationView
+      android:id="@+id/badgeAnimationView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/achievementsTextView"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="16dp"
+      app:lottie_autoPlay="true"
+      app:lottie_loop="true" />
+
+  <TextView
+      android:id="@+id/badgeTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/badgeAnimationView"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="16dp"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      android:textColor="@android:color/black" />
+
+  <TextView
+      android:id="@+id/badgeMessageTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/badgeTextView"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="16dp"
+      android:textSize="16sp"
+      android:textColor="@android:color/black" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -64,15 +64,16 @@
 
     <string-array name="water_heating_options">
         <item>Used Less Hot water</item>
+        <item>Did not use hot water</item>
+        <item>Solar Water Heater</item>
     </string-array>
 
     <string-array name="lighting_options">
         <item>Switched of light bulbs</item>
+        <item>Used LED bulbs</item>
     </string-array>
 
     <string-array name="category_options">
-        <item>Transport</item>
-        <item>Food</item>
         <item>Appliances</item>
         <item>Information and Computer Technology</item>
         <item>Clothing and Footwear</item>
@@ -80,19 +81,12 @@
         <item>Waste Disposal</item>
     </string-array>
 
-    <string-array name="transport_options">
-        <item>Car</item>
-        <item>Motorcycle</item>
-    </string-array>
 
-    <string-array name="food_options">
-        <item>Meat</item>
-        <item>Poultry</item>
-        <item>Fish</item>
-        <item>Rice</item>
-    </string-array>
 
-    <string-array name="appliance_category_options">
+
+
+
+    <string-array name="appliance_main_options">
         <item>Large Appliance</item>
         <item>Small Appliance</item>
     </string-array>
@@ -100,23 +94,23 @@
     <string-array name="appliance_additional_options">
         <item>Postponed Purchase by One Year</item>
         <item>Did Not Purchase</item>
+        <item>Repaired Instead of Buying New</item>
     </string-array>
 
-    <string-array name="ict_options">
-        <item>Smartphones/Mobiles/Tablets</item>
-        <item>Laptops/Desktops</item>
-        <item>TV/Digital Equipment</item>
+    <string-array name="ict_main_options">
+        <item>Mobile Phone</item>
+        <item>Laptop</item>
+        <item>Tablet</item>
     </string-array>
 
     <string-array name="clothing_footwear_options">
         <item>Clothing</item>
         <item>Footwear</item>
-        <item>Did Not Purchase</item>
     </string-array>
 
     <string-array name="ict_additional_options">
-        <item>Postponed Purchase by One Year</item>
-        <item>Did Not Purchase</item>
+        <item>Extended Use by One Year</item>
+        <item>Did Not Upgrade</item>
     </string-array>
 
     <string-array name="clothing_footwear_additional_options">
@@ -142,6 +136,54 @@
     <string-array name="empty_options">
         <item></item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- New strings and arrays for WasteActivity -->
+    <string name="waste_prompt">Select Waste Type</string>
+    <string-array name="waste_categories">
+        <item>Wet Waste</item>
+        <item>Dry Waste</item>
+        <item>Electronic Waste</item>
+        <item>Clothes</item>
+        <item>Footwear</item>
+        <item>Furniture</item>
+    </string-array>
+
+    <string-array name="wet_waste_subcategories">
+        <item>Composted</item>
+        <item>Segregated for Disposal</item>
+    </string-array>
+
+    <string-array name="dry_waste_subcategories">
+        <item>Ensured Reuse</item>
+        <item>Ensured Climate Friendly Disposal</item>
+    </string-array>
+
+    <string-array name="electronic_waste_subcategories">
+        <item>Refurbished</item>
+        <item>Donated</item>
+        <item>Ensured Climate Disposal</item>
+    </string-array>
+
+    <string-array name="clothes_subcategories">
+        <item>Repaired</item>
+        <item>Donated</item>
+        <item>Ensured Reuse</item>
+        <item>Ensured Climate Friendly Disposal</item>
+    </string-array>
+
+    <string-array name="footwear_subcategories">
+        <item>Ensured Climate Friendly Disposal</item>
+        <item>Repaired</item>
+    </string-array>
+
+    <string-array name="furniture_subcategories">
+        <item>Refurbished</item>
+        <item>Donated</item>
+        <item>Ensured Climate Disposal</item>
+    </string-array>
+
+
+    <string name="badge_image">Badge Image</string>
+
+
 </resources>

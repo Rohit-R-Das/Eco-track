@@ -1,41 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color"
-    tools:context=".FoodActivity">
+    tools:context=".WasteActivity">
 
     <TextView
-        android:id="@+id/foodText"
+        android:id="@+id/wasteText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shopping"
+        android:text="Waste Activity"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/purple_500"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/foodAnimation"
-        android:layout_width="450dp"
-        android:layout_height="300dp"
-        app:layout_constraintTop_toBottomOf="@id/foodText"
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toBottomOf="@id/wasteText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        app:lottie_rawRes="@raw/waste"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/shopping" />
+        app:lottie_loop="true" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/foodAnimation"
+        app:layout_constraintTop_toBottomOf="@id/lottieAnimationView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -47,91 +46,88 @@
             android:padding="16dp"
             android:layout_marginTop="16dp">
 
-            <!-- Category Selection Spinner -->
+            <!-- Waste Type Selection Dropdown -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Category"
+                android:text="Select Type of Waste"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <Spinner
-                android:id="@+id/spinner_category"
+                android:id="@+id/wasteSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:popupBackground="@color/bg_color"
-                android:padding="12dp" />
+                android:padding="12dp"
+                android:entries="@array/waste_categories" />
 
-            <!-- Subcategory Selection Spinner -->
+            <!-- Subcategory Spinner -->
+            <Spinner
+                android:id="@+id/subcategorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:popupBackground="@color/bg_color"
+                android:padding="12dp"
+                android:visibility="gone" />
+
+            <!-- Weight Selection SeekBar -->
             <TextView
-                android:id="@+id/tv_subcategory_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Type"
+                android:text="Select Weight (Kg)"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:layout_marginTop="16dp" />
 
-            <Spinner
-                android:id="@+id/spinner_subcategory"
+            <SeekBar
+                android:id="@+id/weightSeekBar"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:popupBackground="@color/bg_color"
-                android:padding="12dp" />
+                android:max="190"
+                android:progress="10" />
 
-            <!-- Additional Options Spinner -->
+            <!-- Display Selected Weight -->
             <TextView
-                android:id="@+id/tv_additional_options_label"
+                android:id="@+id/weightTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Additional Options"
+                android:text="Weight: 10 kg"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 android:textSize="16sp"
-                android:layout_marginTop="16dp"
-                android:visibility="gone" />
-
-            <Spinner
-                android:id="@+id/spinner_additional_options"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@color/bg_color"
-                android:layout_marginTop="8dp"
-                android:popupBackground="@color/bg_color"
-                android:padding="12dp"
-                android:visibility="gone" />
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp" />
 
             <!-- Calculate Button -->
             <Button
-                android:id="@+id/btn_calculate_food"
+                android:id="@+id/calculateButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Calculate"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@android:color/holo_green_light"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:layout_gravity="center_horizontal" />
 
-            <!-- Carbon Savings TextView -->
+            <!-- Carbon Footprint Savings & Suggestions -->
             <TextView
-                android:id="@+id/tvFoodCarbonSavings"
+                android:id="@+id/tvWasteCarbonSavings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Carbon Savings"
-                android:textSize="16sp"
+                android:text="Carbon Savings "
                 android:textStyle="bold"
+                android:textSize="16sp"
                 android:textColor="@android:color/black"
+                android:padding="12dp"
                 android:layout_marginTop="16dp"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                 />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="32dp" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
