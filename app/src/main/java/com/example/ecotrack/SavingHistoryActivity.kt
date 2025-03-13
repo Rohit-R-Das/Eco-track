@@ -3,9 +3,9 @@ package com.example.ecotrack
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.ListView
+import android.widget.TableLayout
+import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.text.SimpleDateFormat
@@ -33,16 +33,35 @@ class SavingHistoryActivity : AppCompatActivity() {
 
         val combinedList = carbonFootprintList + householdCarbonFootprintList + wasteCarbonFootprintList + foodCarbonFootprintList
 
-        val listView = findViewById<ListView>(R.id.listViewEntries)
+        val tableLayout = findViewById<TableLayout>(R.id.tableLayoutEntries)
         val format = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
-        val entries = combinedList.map { entry ->
+
+        for (entry in combinedList) {
             val date = Date(entry.timestamp)
             val formattedDate = format.format(date)
-            "Carbon Footprint: ${entry.carbonFootprint} kg CO2eq\nUploaded on: $formattedDate"
-        }
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, entries)
-        listView.adapter = adapter
+            // Create a new table row
+            val tableRow = TableRow(this)
+
+            // Carbon Footprint TextView
+            val tvFootprint = TextView(this).apply {
+                text = "${entry.carbonFootprint} kg CO2eq"
+                setPadding(16, 16, 16, 16)
+            }
+
+            // Uploaded Date TextView
+            val tvDate = TextView(this).apply {
+                text = formattedDate
+                setPadding(16, 16, 16, 16)
+            }
+
+            // Add TextViews to the TableRow
+            tableRow.addView(tvFootprint)
+            tableRow.addView(tvDate)
+
+            // Add the TableRow to the TableLayout
+            tableLayout.addView(tableRow)
+        }
 
         // Calculate total carbon footprint
         val totalCarbonFootprint = combinedList.sumOf { it.carbonFootprint }
@@ -71,6 +90,7 @@ class SavingHistoryActivity : AppCompatActivity() {
         }
     }
 
+
     private fun clearHistory() {
         with(sharedPreferences.edit()) {
             remove("carbonFootprintList")
@@ -82,4 +102,5 @@ class SavingHistoryActivity : AppCompatActivity() {
         }
         recreate() // Refresh the activity to update the UI
     }
+
 }

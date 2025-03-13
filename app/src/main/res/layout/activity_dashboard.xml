@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
-            android:rowCount="4"
+            android:rowCount="5"
             android:padding="8dp">
 
             <!-- Travel Card -->
@@ -139,7 +139,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- waste Card -->
+            <!-- Waste Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/waste_card"
                 android:layout_width="0dp"
@@ -165,14 +165,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="waste"
+                        android:text="Waste"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/black"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- saving history Card -->
+            <!-- Saving History Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/saving_history"
                 android:layout_width="0dp"
@@ -232,6 +232,72 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Saving Target"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Insight Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_insight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/green"
+                android:layout_columnWeight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_insight"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Insights"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tips-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_tips"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/green"
+                android:layout_columnWeight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_tips"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tips"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/black"/>
@@ -303,6 +369,7 @@
                         android:textColor="@color/black"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
         </GridLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -312,7 +379,7 @@
             android:layout_margin="16dp"
             android:backgroundTint="@android:color/holo_red_light"
             android:text="Sign Out"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textStyle="bold"/>
     </LinearLayout>
 </ScrollView>

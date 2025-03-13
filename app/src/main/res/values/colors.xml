@@ -15,5 +15,9 @@
     <color name="hint_text_color">#A9A9A9</color> <!-- Darker gray hint text color -->
     <color name="button_bg_color">#32CD32</color> <!-- Light green button background color -->
 <color name="grey">#a7aeb4</color>
+    <color name="travelColor"> #A28272</color>
+    <color name="energyColor"> #C77832</color>
+    <color name="shoppingColor"> #322fda</color>
+    <color name="wasteColor"> #F36678</color>
 
 </resources>

@@ -1,0 +1,76 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/bg_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Carbon Footprint Display -->
+        <TextView
+            android:id="@+id/txtCarbonFootprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Carbon Footprint: 0 kg CO₂"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_500"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Impact Level -->
+        <TextView
+            android:id="@+id/txtImpact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Impact Level"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Travel Tips -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:text="🚆 Use Public Transport or Carpool\n🚲 Choose Eco-Friendly Transport\n🔋 Switch to Electric Vehicles\n✈️ Avoid Frequent Flights\n🛣️ Plan Efficient Routes\n🛠️ Maintain Your Vehicle"
+            android:textColor="@color/black"
+            android:layout_marginBottom="15dp" />
+
+        <!-- Energy Tips -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:text="💡 Turn off lights\n🌞 Use Solar Power\n🛑 Unplug Devices\n❄️ Adjust Your Thermostat\n🏠 Insulate Your Home\n🚿 Use Energy-Efficient Appliances"
+            android:textColor="@color/black"
+            android:layout_marginBottom="15dp" />
+
+        <!-- Shopping Tips -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:text="🛍️ Choose Eco-Friendly Brands\n🍃 Buy Local and Seasonal Products\n♻️ Avoid Excessive Packaging\n👕 Shop for Sustainable Clothing\n🥤 Carry Your Own Bottle\n📦 Reduce Online Orders"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp" />
+
+        <!-- Waste Tips -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:text="♻️ Recycle Properly\n🍃 Compost Organic Waste\n🚫 Avoid Single-Use Plastics\n🛠️ Repair and Reuse\n📱 Reduce E-Waste\n🛍️ Use Reusable Bags"
+            android:textColor="@color/black"
+            android:layout_marginBottom="15dp" />
+
+    </LinearLayout>
+</ScrollView>

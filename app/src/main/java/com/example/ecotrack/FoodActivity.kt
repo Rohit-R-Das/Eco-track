@@ -195,4 +195,5 @@ class FoodActivity : AppCompatActivity() {
             Toast.makeText(this, "User not authenticated.", Toast.LENGTH_SHORT).show()
         }
     }
+
 }

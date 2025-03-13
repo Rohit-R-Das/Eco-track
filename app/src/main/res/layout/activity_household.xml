@@ -12,7 +12,7 @@
         android:id="@+id/householdText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Household Activity"
+        android:text="Household Enegy usage"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/purple_500"

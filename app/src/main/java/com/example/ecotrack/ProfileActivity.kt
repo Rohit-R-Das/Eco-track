@@ -57,19 +57,23 @@ class ProfileActivity : AppCompatActivity() {
     private fun loadUserDetails() {
         val account: GoogleSignInAccount? = GoogleSignIn.getLastSignedInAccount(this)
         val firebaseUser = FirebaseAuth.getInstance().currentUser
+        val sharedPreferences = getSharedPreferences("EcoTrackPrefs", Context.MODE_PRIVATE)
+        val savedName = sharedPreferences.getString("USER_NAME", "N/A") // Retrieve name
 
         if (account != null) {
+            // Google Sign-In User
             userNameTextView.text = "Name: ${account.displayName}"
             userEmailTextView.text = "Email: ${account.email}"
         } else if (firebaseUser != null) {
-            userNameTextView.text = "Name: ${firebaseUser.displayName ?: "N/A"}"
-            userEmailTextView.text = "Email: ${firebaseUser.email}"
+            // Email/Password User
+            userNameTextView.text = "Name: $savedName"
+            userEmailTextView.text = "Email: ${firebaseUser.email ?: "N/A"}"
         } else {
             userNameTextView.text = "Name: Not Available"
             userEmailTextView.text = "Email: Not Available"
-            Toast.makeText(this, "No user data found", Toast.LENGTH_LONG).show()
         }
     }
+
 
     private fun showImageOptions() {
         val options = arrayOf("Choose from Gallery", "Remove Profile Picture")

@@ -10,7 +10,7 @@
         android:id="@+id/wasteText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Waste Activity"
+        android:text="Waste "
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/purple_500"

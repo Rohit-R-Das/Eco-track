@@ -131,6 +131,7 @@ class CommuteActivity : AppCompatActivity() {
             val data = hashMapOf(
                 "userId" to user.uid,
                 "carbonFootprint" to carbonFootprint,
+                "activityType" to "Commute",
                 "timestamp" to timestamp
             )
             db.collection("carbonFootprints")

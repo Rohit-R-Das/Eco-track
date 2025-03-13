@@ -42,6 +42,8 @@ class DashboardActivity : AppCompatActivity() {
         val welcomeTextView: TextView = findViewById(R.id.tv_welcome)
         welcomeTextView.text = "Hi $userName, welcome to EcoTrack!"
 
+
+
         // CardView Click Listeners
         findViewById<CardView>(R.id.card_commute).setOnClickListener {
             startActivity(Intent(this, CommuteActivity::class.java))
@@ -71,6 +73,14 @@ class DashboardActivity : AppCompatActivity() {
 
         findViewById<CardView>(R.id.profile_card).setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
+        }
+
+        findViewById<CardView>(R.id.card_insight).setOnClickListener {
+            startActivity(Intent(this, Insight::class.java))
+        }
+
+        findViewById<CardView>(R.id.card_tips).setOnClickListener {
+            startActivity(Intent(this, Tips::class.java))
         }
 
         // Sign Out Button Click Listener

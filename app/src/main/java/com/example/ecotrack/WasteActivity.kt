@@ -3,7 +3,13 @@ package com.example.ecotrack
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.SeekBar
+import android.widget.Spinner
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -158,4 +164,5 @@ class WasteActivity : AppCompatActivity() {
             Toast.makeText(this, "User not authenticated.", Toast.LENGTH_SHORT).show()
         }
     }
+
 }

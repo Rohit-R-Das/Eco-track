@@ -140,8 +140,17 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun openDashboard() {
-        val intent = Intent(this, DashboardActivity::class.java)
-        startActivity(intent)
-        finish()
+        val user = auth.currentUser
+        if (user != null) {
+            if (user.providerData.any { it.providerId == "password" }) {
+                // Redirect email-password users to NameActivity
+                startActivity(Intent(this, NameActivity::class.java))
+            } else {
+                // Redirect Google sign-in users to DashboardActivity
+                startActivity(Intent(this, DashboardActivity::class.java))
+            }
+            finish()
+        }
     }
+
 }

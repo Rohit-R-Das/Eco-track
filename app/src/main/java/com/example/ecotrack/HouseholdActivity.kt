@@ -152,6 +152,7 @@ class HouseholdActivity : AppCompatActivity() {
             val data = hashMapOf(
                 "userId" to user.uid,
                 "carbonFootprint" to carbonFootprint,
+                "activityType" to "Household",
                 "timestamp" to timestamp
             )
             db.collection("carbonFootprints").add(data)

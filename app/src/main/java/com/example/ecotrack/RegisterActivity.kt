@@ -2,7 +2,6 @@ package com.example.ecotrack
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -49,28 +48,37 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun validateInput(email: String, password: String): Boolean {
+        val emailRegex = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")
+
         return when {
             email.isEmpty() || password.isEmpty() -> {
                 showToast("Email and password must not be empty")
                 false
             }
-            !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
+            !emailRegex.matches(email) -> {
                 showToast("Please enter a valid email address")
                 false
             }
-            password.length < 8 || !password.matches(Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")) -> {
-                showToast("Password must be at least 8 characters long and contain letters and numbers")
+            password.length < 8 || !password.matches(Regex("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@\$!%*#?&])[A-Za-z\\d@\$!%*#?&]{8,}$")) -> {
+                showToast("Password must be at least 8 characters long and include a letter, a number, and a special character")
                 false
             }
             else -> true
         }
     }
 
+
+
     private fun registerUser(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     showToast("Registration successful! Redirecting to login...")
+
+                    // Sign out the user so they are not automatically logged in
+                    auth.signOut()
+
+                    // Navigate to LoginActivity
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 } else {
@@ -78,6 +86,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
     }
+
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
